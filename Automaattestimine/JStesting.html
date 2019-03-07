@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>Jasmine Spec Runner v2.2.0</title>
+      
+        <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.2.0/jasmine_favicon.png">
+        <link rel="stylesheet" href="lib/jasmine-2.2.0/jasmine.css">
+      
+        <script src="lib/jasmine-2.2.0/jasmine.js"></script>
+        <script src="lib/jasmine-2.2.0/jasmine-html.js"></script>
+        <script src="lib/jasmine-2.2.0/boot.js"></script>
+      
+        <!-- SOURCE FILES -->
+        <script src="src/Player.js"></script>
+        <script src="src/Song.js"></script>
+      
+      
+        <!-- SPEC FILES -->
+        <script src="spec/SpecHelper.js"></script>
+        <script src="spec/PlayerSpec.js"></script>
+</head>
+<body>
+    <div>
+        <h1>tere</h1>
+    </div>
+
+
+<script>
+    describe("Player" , function() {
+        var player;
+        var song;
+
+        beforeEach(function() {
+            player = new Player();
+            song = new Song();
+        });
+
+        it("should be able to play a Song", function() {
+            player.play(song);
+            expect(player.currentlyPlayingSong).toEqual(song);
+
+            expect(player).toBePlaying(song);
+        });
+
+        describe("when song has been paused", function() {
+            beforeEach(function() {
+                player.play(song);
+                player.pause();
+            });
+        });
+    })
+    
+</script>    
+</body>
+</html>
