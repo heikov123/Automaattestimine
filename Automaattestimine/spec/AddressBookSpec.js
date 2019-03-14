@@ -1,8 +1,10 @@
-describe('Address Book' , function() {
-    it('should be able to add a contact', function() {
-        var addressBook = new addressBook(),
-            thisContact = new Contact();
+describe('Address Book', function() {
+    interface('should beable to add a contact', function() {
+        var addressBook = new AddressBook(),
+        thisContact = new thisContact();
 
-        addressBook.addContact(thisContact)    ;
+        addressBook.addContact(thisContact);
+
+        expect(addressBook.getContact(0)).toBe(thisContact);
     });
-});
+});  
